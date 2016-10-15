@@ -122,24 +122,24 @@ $(document).ready(function(){
     var anchorIndex = Math.round($(window).scrollTop()/($(window).height()-marginForNav));
     var maxAnchorIndex = Math.round(($(document).height()-marginForNav)/($(window).height()-marginForNav))-1;
 
-
-    $('body')[0].addEventListener('touchstart', function (event) {
+    if(window.innerWidth!==768) {
+        $('body')[0].addEventListener('touchstart', function (event) {
             initialPoint = event.changedTouches[0];
-    }, false);
+        }, false);
 
 
-    $('body')[0].addEventListener('touchmove', function (event) {
-        event.preventDefault();
-    }, false);
+        $('body')[0].addEventListener('touchmove', function (event) {
+            event.preventDefault();
+        }, false);
 
-    $('body')[0].addEventListener('touchend', function (event) {
-        if (!swipeYOff){
-            finalPoint = event.changedTouches[0];
-            getFinalPoint(anchorIndex,initialPoint,finalPoint,maxAnchorIndex);
-            setTimeout(swipeYOffTimePassed, 500);
-        }
-    }, false);
-
+        $('body')[0].addEventListener('touchend', function (event) {
+            if (!swipeYOff) {
+                finalPoint = event.changedTouches[0];
+                getFinalPoint(anchorIndex, initialPoint, finalPoint, maxAnchorIndex);
+                setTimeout(swipeYOffTimePassed, 500);
+            }
+        }, false);
+    }
     var animate =[];
     imgResize();
     fillingClassesArr('animation-rotate-45',animate,AnimationConstr);
