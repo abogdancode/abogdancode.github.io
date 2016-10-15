@@ -139,6 +139,8 @@ $(document).ready(function(){
                 setTimeout(swipeYOffTimePassed, 500);
             }
         }, false);
+    } else{
+        $('#myCanvas').remove();
     }
     var animate =[];
     imgResize();
