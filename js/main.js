@@ -104,6 +104,14 @@ onFrameOff = false;
 var swipeYOff = false;
 var marginForNav = 50;
 $(document).ready(function(){
+    
+    if(window.innerWidth<=768){
+        document.getElementById("anchor-2").innerHTML = 'Contact';
+        document.getElementById("anchor-2").setAttribute('href','about.html#contact');
+        document.getElementById("anchor-3").innerHTML = 'About';
+        document.getElementById("anchor-3").setAttribute('href','about.html#about');
+    }
+
 
     $('ul.nav>li').click(function() {
         $('.navbar-collapse.in').removeClass('in');
@@ -152,6 +160,12 @@ $(document).ready(function(){
         imgResize();
     });
 });
+
+
+
+
+
+
 
 function getFinalPoint(index,initialPoint,finalPoint,maxAnchorIndex) {
         var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);

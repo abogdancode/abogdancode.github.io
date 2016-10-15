@@ -507,7 +507,7 @@ height: 425px;
 }
 
 @media (max-width: 736px){
-    h2.logo-head-2{
+    .item-description-cont  h2.logo-head-2{
         display: none;
     }
 }
@@ -900,7 +900,7 @@ h2.contactText a{
     }
 
     .contForText {
-        margin-top: 0;
+        margin-top: -50px;
     }
 
     h2.contactText {
