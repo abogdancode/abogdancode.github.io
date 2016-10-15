@@ -503,9 +503,14 @@ height: 425px;
  .portfolio-view {
   height: 80%;
  }
+
 }
 
-
+@media (max-width: 736px){
+    h2.logo-head-2{
+        display: none;
+    }
+}
 
 /*---------------------------------------END PORTFOLIO-------------------------------------------------*/
 
