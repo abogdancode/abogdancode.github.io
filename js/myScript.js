@@ -1,7 +1,6 @@
 
-var isiPad = navigator.userAgent.match(/iPad/i) != null;
 
-if(!isiPad) {
+if(window.innerWidth!==768) {
 
 
     var dance;
