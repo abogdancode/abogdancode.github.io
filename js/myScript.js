@@ -1,6 +1,5 @@
 
 
-if(window.innerWidth!==768) {
 
 
     var dance;
@@ -283,7 +282,7 @@ if(window.innerWidth!==768) {
                     numberSigment = 0;
                 }
                 var directToFirst = item.position - surround.segments[numberSigment].point;
-                var directToFirst = directToFirst.normalize(0.1);
+                 directToFirst = directToFirst.normalize(0.1);
                 item.vector -= directToFirst;
                 if (item.vector.length > 1) {
                     item.vector -= item.vector / 70;
@@ -301,4 +300,4 @@ if(window.innerWidth!==768) {
         }
 
     }
-}
+   
