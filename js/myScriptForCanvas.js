@@ -115,7 +115,8 @@ var
  leftBottom,
  surround,
  pointMouse,
- goToPoint = false;
+ goToPoint = false,
+ explorer = getInternetExplorerVersion();
 
 getCanSize();
 getNumFireflys();
@@ -142,6 +143,7 @@ $( '.logo-cont' ).click(function() {
     toSurround = !toSurround;
     goToPoint = false;
 });
+console.log(getInternetExplorerVersion());
 
 function onFrame()  {
         fireflys.forEach(function(item, index, fireflys) {
@@ -156,7 +158,7 @@ function onFrame()  {
                 item.goToPoint(pointMouse);
             }
             else{
-            if (dance && getInternetExplorerVersion()===-1) {
+            if (dance && explorer===-1) {
                     fireflys.forEach(function(itemJ){
                         item.react(itemJ);
                     });
@@ -288,5 +290,8 @@ function getNumFireflys() {
         numFireflys = Math.round(canWidth/20);
     }else{
         numFireflys = Math.round(canWidth/17);
+    }
+    if(explorer!==-1){
+        numFireflys = numFireflys/1.5;
     }
 }
