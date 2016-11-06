@@ -62,7 +62,7 @@ if( !smallScreen){
             initialPoint = event.changedTouches[0];
         }, false);
         body.addEventListener('touchmove', function (event) {
-            event.preventDefault();
+            //event.preventDefault();
         }, false);
         body.addEventListener('touchend', function (event) {
             if (!swipeYOff) {
