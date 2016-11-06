@@ -101,47 +101,17 @@ function onFrameOffFun() {
 }
 /*---------------------------------------- MAIN ----------------------------------------------------------------------*/
 onFrameOff = false;
-var swipeYOff = false;
 var marginForNav = 50;
 $(document).ready(function(){
-    
     if(window.innerWidth<=768){
         document.getElementById("anchor-2").innerHTML = 'Contact';
         document.getElementById("anchor-2").setAttribute('href','about.html#contact');
         document.getElementById("anchor-3").innerHTML = 'About';
         document.getElementById("anchor-3").setAttribute('href','about.html#about');
     }
-
-
     $('ul.nav>li').click(function() {
         $('.navbar-collapse.in').removeClass('in');
     });
-
-    var initialPoint;
-    var finalPoint;
-    var anchorIndex = Math.round($(window).scrollTop()/($(window).height()-marginForNav));
-    var maxAnchorIndex = Math.round(($(document).height()-marginForNav)/($(window).height()-marginForNav))-1;
-
-    if(window.innerWidth!==768) {
-        $('body')[0].addEventListener('touchstart', function (event) {
-            initialPoint = event.changedTouches[0];
-        }, false);
-
-
-        $('body')[0].addEventListener('touchmove', function (event) {
-            event.preventDefault();
-        }, false);
-
-        $('body')[0].addEventListener('touchend', function (event) {
-            if (!swipeYOff) {
-                finalPoint = event.changedTouches[0];
-                getFinalPoint(anchorIndex, initialPoint, finalPoint, maxAnchorIndex);
-                setTimeout(swipeYOffTimePassed, 500);
-            }
-        }, false);
-    } else{
-        $('#myCanvas').remove();
-    }
     var animate =[];
     imgResize();
     fillingClassesArr('animation-rotate-45',animate,AnimationConstr);
@@ -149,15 +119,11 @@ $(document).ready(function(){
     fillingClassesArr('animation-increase',animate,AnimationConstr);
     fillingClassesArr('animation-x-right',animate,AnimationConstr);
     fillingClassesArr('animation-increase-font',animate,AnimationConstr);
-
     loopForAnimate(animate);
-
     $(document).scroll(function () {
         loopForAnimate(animate);
         onFrameOff = onFrameOffFun();
-        anchorIndex = Math.round($(window).scrollTop()/($(window).height()-marginForNav));
     });
-
     $(window).resize(function(){
         imgResize();
     });
@@ -165,34 +131,4 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-function getFinalPoint(index,initialPoint,finalPoint,maxAnchorIndex) {
-        var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
-        if (yAbs > 20) {
-            if (finalPoint.pageY < initialPoint.pageY) {
-                if(index!=maxAnchorIndex){
-                    index +=1;
-                    $('html, body').animate({scrollTop: getOffset($('.anchorForScroll')[index]).top - marginForNav}, 500);
-                    swipeYOff = true;
-                }
-            }
-            else {
-                if(index!=0) {
-                    index -= 1;
-                    $('html, body').animate({scrollTop: getOffset($('.anchorForScroll')[index]).top - marginForNav}, 500);
-                    swipeYOff = true;
-                }
-            }
-
-        }
-        return index;
-}
-
-
-function swipeYOffTimePassed() {
-    swipeYOff = false;
-}
 

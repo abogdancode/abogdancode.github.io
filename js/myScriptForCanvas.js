@@ -116,7 +116,8 @@ var
  surround,
  pointMouse,
  goToPoint = false,
- explorer = getInternetExplorerVersion();
+ explorer = getInternetExplorerVersion(),
+ disappearPath = false;
 
 getCanSize();
 getNumFireflys();
@@ -143,7 +144,6 @@ $( '.logo-cont' ).click(function() {
     toSurround = !toSurround;
     goToPoint = false;
 });
-console.log(getInternetExplorerVersion());
 
 function onFrame()  {
         fireflys.forEach(function(item, index, fireflys) {
@@ -166,10 +166,13 @@ function onFrame()  {
             }
             item.path.position = item.point;
         });
-    if (goToPoint || toSurround && path1) {
+    if (disappearPath && path1) {
         if (path1.alpha > 0) {
             path1.alpha -= 0.005;
+        }else{
+            disappearPath  = false;
         }
+
         path1.strokeColor.gradient.stops =
             [[{hue: 60, saturation: 1, brightness: 1, alpha: path1.alpha * 2}, 0.05],
                 [{hue: 60, saturation: 0.5, brightness: 1, alpha: path1.alpha}, 0.1],
@@ -197,6 +200,7 @@ function onMouseDown(event) {
         strokeWidth: 10,
         nearPointNum: []
     });
+    disappearPath = false;
 }
 function onMouseDrag(event) {
     if (!smallScreen) {
@@ -243,6 +247,7 @@ function onMouseUp() {
             }
         }
     }
+    disappearPath = true;
 }
 
 function getInternetExplorerVersion()

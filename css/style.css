@@ -305,11 +305,13 @@ a:hover .hireMe{
 
 .portfolio-section{
  height: 100%;
+
 }
 
 .portfolio-item-cont{
  overflow: hidden;
  height: calc(100% + 50px);
+
 }
 
 .item-description{
@@ -522,6 +524,7 @@ height: 425px;
     .about-section {
         height: 100%;
         padding-top: 50px;
+
     }
 
     /*********************************/

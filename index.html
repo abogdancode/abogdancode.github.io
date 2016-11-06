@@ -269,19 +269,21 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
-  	<script src="js/main.js"></script>
-  <script>
-	  function addScript( type, src, canvas){
-		  var script = document.createElement('script');
-		  script.type = type;
-		  script.src = src;
-		  script.setAttribute("canvas", canvas);
-		  script.async = false;
-		  document.head.appendChild(script);
-	  }
-	  if(document.documentElement.clientWidth !== 768) {
-		  addScript('text/paperscript', 'js/myScriptForCanvas.js', 'myCanvas');
-	  }
-  </script>
-  </body>
+  <script src="js/main.js"></script>
+  <script src="js/swipeForDesk.js"></script>
+
+<script>
+  function addScript( type, src, canvas){
+      var script = document.createElement('script');
+      script.type = type;
+      script.src = src;
+      script.setAttribute("canvas", canvas);
+      script.async = false;
+      document.head.appendChild(script);
+  }
+  if(document.documentElement.clientWidth !== 768) {
+      addScript('text/paperscript', 'js/myScriptForCanvas.js', 'myCanvas');
+  }
+</script>
+</body>
 </html>
