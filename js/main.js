@@ -126,9 +126,6 @@ $(document).ready(function(){
     });
     $(window).resize(function(){
         imgResize();
-        if(window.innerWidth<700){
-            $('.anchorForScroll').css("height",window.innerHeight);
-        }
     });
 });
 
