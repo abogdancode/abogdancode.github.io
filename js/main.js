@@ -1,42 +1,6 @@
 /**
  * Created by AlexBogdan on 16.07.2016.
  */
-
-function AnimationConstr(className, offsetTop, index) {
-    this.className = className;
-    this.offsetTop = offsetTop;
-    this.animationAlement = $('.'+className)[index];
-    this.done = false;
-}
-
-AnimationConstr.prototype = {
-    iterate: function() {
-        if (!this.done){
-            var scrollTop = $(window).scrollTop() + $(window).height()-marginForNav;
-            var offsetTop = this.offsetTop;
-            if (scrollTop > offsetTop) {
-                this.animationAlement.classList.remove(this.className);
-                this.done = true;
-        }
-        }
-    }
-    };
-
-function fillingClassesArr(classElem,classArr,ClassConstr){
-    for (var i = 0; i < $('.'+classElem).length ; i++) {
-        classArr.push([]);
-        classArr[i].push(new ClassConstr(classElem, getOffset($('.'+classElem)[i]).top, i));
-    }
-}
-
-function loopForAnimate(animate) {
-    for (var i = 0; i < animate.length; i++) {
-        for (var j = 0; j < animate[i].length; j++) {
-            animate[i][j].iterate();
-        }
-    }
-}
-
 function getOffset(elem) {
     if (elem.getBoundingClientRect) {
         return getOffsetRect(elem);
@@ -91,11 +55,7 @@ function onFrameOffFun() {
         var onFrameOff = false;
         var scrollTop = $(window).scrollTop() + $(window).height()-marginForNav;
         var offsetTop = getOffset( $('#portfolio')[0]).top;
-        if (scrollTop >= offsetTop*1.8) {
-            onFrameOff = true;
-        } else {
-            onFrameOff = false;
-        }
+        onFrameOff = scrollTop >= offsetTop * 1.8;
         return onFrameOff;
 
 }
@@ -112,16 +72,8 @@ $(document).ready(function(){
     $('ul.nav>li').click(function() {
         $('.navbar-collapse.in').removeClass('in');
     });
-    var animate =[];
     imgResize();
-    fillingClassesArr('animation-rotate-45',animate,AnimationConstr);
-    fillingClassesArr('animation-x-left',animate,AnimationConstr);
-    fillingClassesArr('animation-increase',animate,AnimationConstr);
-    fillingClassesArr('animation-x-right',animate,AnimationConstr);
-    fillingClassesArr('animation-increase-font',animate,AnimationConstr);
-    loopForAnimate(animate);
     $(document).scroll(function () {
-        loopForAnimate(animate);
         onFrameOff = onFrameOffFun();
     });
     $(window).resize(function(){

@@ -331,12 +331,8 @@ a:hover .hireMe{
 }
 
 .item-description .logo-head{
- /*-----------animation---------*/
  position: relative;
  left:0;
- transition-property: transform, left, right, font-size;
- -webkit-transition-duration: 2s;  -moz-transition-duration: 2s;  -ms-transition-duration: 2s;  -o-transition-duration: 2s;
- transition-duration: 2s;
 }
 
 .item-description .logo-head:hover{
@@ -344,12 +340,9 @@ a:hover .hireMe{
 }
 
 .item-description .logo-head-2{
- /*-----------animation---------*/
+
  position: relative;
  left:0;
- transition-property: transform, left, right, font-size;
- -webkit-transition-duration: 2s;  -moz-transition-duration: 2s;  -ms-transition-duration: 2s;  -o-transition-duration: 2s;
- transition-duration: 2s;
 }
 
 .item-description-cont{
@@ -386,15 +379,9 @@ a:hover .hireMe{
  border-radius: 5px;
  border: 3px solid rgba(255,255,178,0.7);
  box-shadow: 0 0 30px rgba(255,255,178,0.5);
- -webkit-transform: rotate(-45deg);  -moz-transform: rotate(-45deg);  -ms-transform: rotate(-45deg);  -o-transform: rotate(-45deg);
- transform: rotate(-45deg);
  margin-left: 0;
- /*-----------animation---------*/
  position: relative;
  left:0;
- transition-property: transform, left, top, width, height;
- -webkit-transition-duration: 2s;  -moz-transition-duration: 2s;  -ms-transition-duration: 2s;  -o-transition-duration: 2s;
- transition-duration: 2s;
 }
 
 .img-items-cont:hover{
@@ -430,33 +417,10 @@ height: 425px;
   margin-right: auto;
  }
 
- .img-items-cont {
-  /*--------animation--------------------------*/
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -ms-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
- }
- .item-description .logo-head{
-  /*------animation--------------------------*/
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -ms-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
-}
+
  .item-description.item-left .logo-head{
   margin-top:5%;
 
- }
- .item-description .logo-head-2{
-  /*------animation--------------------------*/
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -ms-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
  }
 
  .portfolio-view.item-right{
@@ -973,30 +937,3 @@ h3.footer{
 
 /*--------------------------------------- END FOOTER-----------------------------------------------------*/
 
-
-    /*---------------------------------------ANIMATION ----------------------------------------------------*/
-
-.animation-rotate-45{
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-
-.animation-x-left{
-left: -700px!important;
- }
-
-.animation-x-right{
-left: 700px!important;
-}
-
-.animation-increase{
- width:1px!important;
- height:1px!important;
-}
-
-.animation-increase-font{
- font-size: 1px!important;
-}
